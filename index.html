@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ลอยกระทงออนไลน์กับพี่ยู เดอะเบรน</title>
+<meta name="description" content="ลอยกระทงออนไลน์กับพี่ยู เดอะเบรน ทั่วประเทศไทย — เขียนคำอธิษฐาน เลือกกระทง เลือกสถานที่จริงในประเทศไทย แล้วปล่อยกระทงลงสายน้ำ โดยไม่สร้างขยะ">
+<meta name="theme-color" content="#1b1440">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600&family=Noto+Serif+Thai:wght@500;600;700&family=Charm:wght@400;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">ข้ามไปเนื้อหาหลัก</a>
+
+<header class="top">
+  <a class="brand" href="#home" aria-label="หน้าหลัก ลอยกระทงออนไลน์">
+    <img src="assets/we-logo.webp" alt="WE" width="40" height="40">
+    <span>ลอยกระทงออนไลน์</span>
+  </a>
+  <nav class="nav" aria-label="เมนูหลัก">
+    <a href="#home" data-nav="home">หน้าหลัก</a>
+    <a href="#create" data-nav="create">ลอยกระทง</a>
+    <a href="#gallery" data-nav="gallery">กระทงบนสายน้ำ</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ============ LANDING ============ -->
+<section class="view view-home" id="view-home" data-view="home" aria-labelledby="home-title">
+  <div class="hero-slides" id="hero-slides" aria-hidden="true">
+    <img class="slide on" src="assets/hero-krathong-candles.webp" alt="" width="1600" height="1600" fetchpriority="high" style="--pos:50% 55%">
+    <img class="slide" src="assets/hero-wat-arun.webp" alt="" width="1600" height="1600" loading="lazy" style="--pos:50% 58%">
+    <img class="slide" src="assets/hero-krathong-water.webp" alt="" width="1600" height="1600" loading="lazy" style="--pos:45% 60%">
+  </div>
+  <div class="hero-shade" aria-hidden="true"></div>
+  <canvas class="sparkle-layer" id="home-sparkles" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <div class="home-copy">
+      <p class="kicker">คืนวันเพ็ญ เดือนสิบสอง</p>
+      <h1 id="home-title">ลอยกระทงออนไลน์<br><span>กับพี่ยู เดอะเบรน</span></h1>
+      <p class="hero-where">ทั่วประเทศไทย</p>
+      <p class="bless">“ขอให้ทุกคำอธิษฐาน ลอยไปพร้อมกับแสงจันทร์”</p>
+      <p class="lede">เขียนคำอธิษฐาน เลือกกระทง แล้วลอยไปพร้อมพี่ยู ณ สถานที่จริงทั่วประเทศไทย ไม่มีขยะตกค้างในแม่น้ำจริง</p>
+      <div class="cta-row">
+        <button class="btn btn-gold btn-lg" type="button" data-action="start">เริ่มลอยกระทง</button>
+        <a class="btn btn-ghost" href="#gallery">ดูกระทงที่ลอยแล้ว <span class="count-chip" id="home-count" hidden></span></a>
+      </div>
+    </div>
+    <ol class="how">
+      <li><b>1</b>เขียนคำอธิษฐาน</li>
+      <li><b>2</b>เลือกกระทง</li>
+      <li><b>3</b>เลือกสถานที่</li>
+      <li><b>4</b>ปล่อยกระทง</li>
+    </ol>
+    <div class="dots" id="hero-dots" role="group" aria-label="ภาพพื้นหลัง">
+      <button type="button" class="on" aria-label="ภาพที่ 1" aria-pressed="true"></button>
+      <button type="button" aria-label="ภาพที่ 2" aria-pressed="false"></button>
+      <button type="button" aria-label="ภาพที่ 3" aria-pressed="false"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CREATE FLOW ============ -->
+<section class="view view-create" id="view-create" data-view="create" hidden aria-labelledby="create-title">
+  <div class="create-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <h1 class="sr-only" id="create-title">สร้างกระทงของคุณ</h1>
+    <ol class="stepper" id="stepper" aria-label="ขั้นตอน">
+      <li data-s="1"><span>1</span><em>ข้อมูลและคำอธิษฐาน</em></li>
+      <li data-s="2"><span>2</span><em>เลือกกระทง</em></li>
+      <li data-s="3"><span>3</span><em>เลือกสถานที่</em></li>
+      <li data-s="4"><span>4</span><em>ตรวจสอบ</em></li>
+    </ol>
+
+    <!-- STEP 1: FORM -->
+    <form class="step card" id="step-1" data-step="1" novalidate>
+      <div class="step-head">
+        <div class="sh-text">
+        <h2 tabindex="-1">ข้อมูลผู้ลอยกระทง</h2>
+        <p>ใช้เวลาไม่ถึงนาที — ชื่อจริงจะไม่แสดงต่อสาธารณะ</p>
+        </div>
+        <div class="guide" aria-hidden="true"><img src="assets/host-bust.webp" alt="" width="240" height="240"><p class="bubble"><b>พี่ยู</b>เขียนคำอธิษฐานจากใจได้เลย ไม่เกิน 250 ตัวอักษร</p></div>
+      </div>
+      <div class="form-grid">
+        <div class="fields">
+          <div class="field">
+            <label for="f-real">ชื่อจริง <small>(ไม่บังคับ)</small></label>
+            <input id="f-real" name="realName" type="text" maxlength="60" autocomplete="name" placeholder="เช่น ธนวัฒน์">
+            <p class="err" id="e-real" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="f-nick">ชื่อเล่น <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-nick" name="nickname" type="text" maxlength="30" required autocomplete="nickname" placeholder="เช่น เตอร์" aria-describedby="e-nick">
+            <p class="err" id="e-nick" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="f-wish">คำอธิษฐาน <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="f-wish" name="wish" rows="5" maxlength="250" required placeholder="ขอให้ปีนี้เป็นปีที่ดี…" aria-describedby="wish-count e-wish"></textarea>
+            <div class="wish-meta">
+              <p class="err" id="e-wish" aria-live="polite"></p>
+              <span class="counter" id="wish-count" aria-live="polite">0/250</span>
+            </div>
+          </div>
+          <label class="toggle">
+            <input type="checkbox" id="f-public" checked>
+            <span class="track" aria-hidden="true"></span>
+            <span>เผยแพร่คำอธิษฐานในหน้า “กระทงบนสายน้ำ” <small>(แสดงเฉพาะชื่อเล่น)</small></span>
+          </label>
+          <button class="link-btn" type="button" id="fill-example">ใช้ข้อความตัวอย่าง</button>
+        </div>
+        <aside class="wish-preview" aria-label="ตัวอย่างข้อความ">
+          <p class="pv-label">ตัวอย่างก่อนยืนยัน</p>
+          <div class="pv-paper">
+            <p class="pv-wish" id="pv-wish">คำอธิษฐานของคุณจะปรากฏที่นี่</p>
+            <p class="pv-sign">— <span id="pv-nick">ชื่อเล่น</span></p>
+          </div>
+          <p class="pv-note" id="pv-public">จะแสดงในหน้ากระทงบนสายน้ำ</p>
+        </aside>
+      </div>
+      <div class="step-actions">
+        <button class="btn btn-ghost" type="button" data-action="home">กลับหน้าหลัก</button>
+        <button class="btn btn-gold" type="submit">ถัดไป: เลือกกระทง</button>
+      </div>
+    </form>
+
+    <!-- STEP 2: KRATHONG -->
+    <div class="step card" id="step-2" data-step="2" hidden>
+      <div class="step-head">
+        <div class="sh-text">
+        <h2 tabindex="-1">เลือกกระทงของคุณ</h2>
+        <p>แตะเพื่อเลือก เปลี่ยนได้ตลอดก่อนยืนยัน</p>
+        </div>
+        <div class="guide" aria-hidden="true"><img src="assets/host-bust.webp" alt="" width="240" height="240"><p class="bubble"><b>พี่ยู</b>กระทงแบบไหนถูกใจ แตะเลือกได้เลย เปลี่ยนใจได้ตลอด</p></div>
+      </div>
+      <div class="kt-layout">
+        <div class="kt-grid" id="kt-grid" role="radiogroup" aria-label="แบบกระทง"></div>
+        <aside class="kt-preview" aria-live="polite">
+          <div class="kt-pv-stage">
+            <img id="kt-pv-img" alt="" width="640" height="731">
+            <span class="kt-pv-glow"></span>
+          </div>
+          <h3 id="kt-pv-name">ยังไม่ได้เลือกกระทง</h3>
+          <p id="kt-pv-desc">เลือกกระทงจากรายการเพื่อดูตัวอย่าง</p>
+        </aside>
+      </div>
+      <p class="err center" id="e-kt" aria-live="polite"></p>
+      <div class="step-actions">
+        <button class="btn btn-ghost" type="button" data-action="back">ย้อนกลับ</button>
+        <button class="btn btn-gold" type="button" data-action="next">ถัดไป: เลือกสถานที่</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: PLACE -->
+    <div class="step card" id="step-3" data-step="3" hidden>
+      <div class="step-head">
+        <div class="sh-text">
+        <h2 tabindex="-1">เลือกสถานที่ลอยกระทง</h2>
+        <p>ค้นหาสถานที่จริงทั่วประเทศไทย แตะหมุดบนแผนที่ หรือเลือกจากสถานที่แนะนำ</p>
+        </div>
+        <div class="guide" aria-hidden="true"><img src="assets/host-bust.webp" alt="" width="240" height="240"><p class="bubble"><b>พี่ยู</b>ปีนี้อยากลอยกระทงที่ไหนดี ค้นหาหรือแตะบนแผนที่ได้เลย</p></div>
+      </div>
+      <div class="place-layout">
+        <div class="map-col">
+          <div class="search-box" id="search-box">
+            <label class="sr-only" for="place-q">ค้นหาสถานที่</label>
+            <input id="place-q" type="search" autocomplete="off" placeholder="ค้นหา เช่น สะพานพระราม 8, แม่น้ำปิง" role="combobox" aria-expanded="false" aria-controls="place-suggest" aria-autocomplete="list">
+            <ul class="suggest" id="place-suggest" role="listbox" hidden></ul>
+            <div id="gmp-ac-slot" hidden></div>
+          </div>
+          <div class="map-wrap">
+            <div class="map" id="map" role="application" aria-label="แผนที่ประเทศไทย"></div>
+            <div class="map-tools" id="map-tools">
+              <button type="button" class="mt" data-zoom="in" aria-label="ขยาย">+</button>
+              <button type="button" class="mt" data-zoom="out" aria-label="ย่อ">−</button>
+              <button type="button" class="mt" data-zoom="reset" aria-label="ดูทั้งประเทศ">⤢</button>
+            </div>
+            <p class="map-hint" id="map-hint"></p>
+            <div class="map-loading" id="map-loading" hidden>กำลังโหลดแผนที่…</div>
+          </div>
+          <div class="chips" id="preset-chips" aria-label="สถานที่แนะนำ"></div>
+        </div>
+        <aside class="place-side">
+          <div class="place-card" id="place-card" aria-live="polite">
+            <p class="muted">ยังไม่ได้เลือกสถานที่</p>
+          </div>
+          <button class="btn btn-soft w100" type="button" id="btn-nearby" disabled>ค้นหาสถานที่ใกล้เคียง</button>
+          <ul class="nearby" id="nearby-list" aria-label="สถานที่ใกล้เคียง"></ul>
+        </aside>
+      </div>
+      <p class="place-preview" id="place-preview" hidden></p>
+      <p class="err center" id="e-place" aria-live="polite"></p>
+      <div class="step-actions">
+        <button class="btn btn-ghost" type="button" data-action="back">ย้อนกลับ</button>
+        <button class="btn btn-gold" type="button" data-action="next">ถัดไป: ตรวจสอบ</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: CONFIRM -->
+    <div class="step card" id="step-4" data-step="4" hidden>
+      <div class="step-head">
+        <div class="sh-text">
+        <h2 tabindex="-1">คำอธิษฐานของคุณพร้อมที่จะลอยไปกับสายน้ำแล้วหรือยัง?</h2>
+        </div>
+        <div class="guide" aria-hidden="true"><img src="assets/host-bust.webp" alt="" width="240" height="240"><p class="bubble"><b>พี่ยู</b>ตรวจดูอีกนิด ถ้าพร้อมแล้วปล่อยกระทงกันเลย</p></div>
+      </div>
+      <div class="confirm-layout">
+        <div class="confirm-kt">
+          <img id="cf-img" alt="" width="640" height="731">
+          <span class="kt-pv-glow"></span>
+        </div>
+        <dl class="summary" id="summary"></dl>
+      </div>
+      <p class="err center" id="e-submit" aria-live="assertive"></p>
+      <div class="step-actions">
+        <button class="btn btn-ghost" type="button" data-action="back">ย้อนกลับ</button>
+        <button class="btn btn-gold btn-lg" type="button" id="btn-release">ยืนยันและปล่อยกระทง</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLOAT SCENE ============ -->
+<section class="view view-float" id="view-float" data-view="float" hidden aria-labelledby="float-title">
+  <canvas id="river" aria-hidden="true"></canvas>
+  <p class="float-status" id="float-status" aria-live="polite">กำลังปล่อยกระทง…</p>
+  <button class="skip-anim" type="button" id="skip-anim">ข้ามแอนิเมชัน</button>
+  <div class="float-result" id="float-result" hidden>
+    <img class="fr-host" src="assets/host-bust.webp" alt="" width="240" height="240" aria-hidden="true">
+    <h1 id="float-title" tabindex="-1">กระทงของคุณได้ลอยสู่สายน้ำแล้ว</h1>
+    <p class="fr-place" id="fr-place"></p>
+    <blockquote class="fr-wish" id="fr-wish"></blockquote>
+    <p class="fr-bless">ขอให้ทุกคำอธิษฐานเป็นจริง</p>
+    <p class="fr-note" id="fr-note"></p>
+    <div class="cta-row center">
+      <button class="btn btn-gold" type="button" data-action="again">ลอยกระทงอีกครั้ง</button>
+      <button class="btn btn-ghost" type="button" data-action="home">กลับสู่หน้าหลัก</button>
+      <a class="btn btn-ghost" href="#gallery">ดูกระทงทั้งหมด</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="view view-gallery" id="view-gallery" data-view="gallery" hidden aria-labelledby="gal-title">
+  <div class="gal-hero">
+    <img src="assets/scene-sukhothai.webp" alt="" width="1200" height="1500" aria-hidden="true">
+    <img class="gal-host" src="assets/host.webp" alt="" width="700" height="1052" aria-hidden="true">
+    <div class="gal-hero-copy">
+      <h1 id="gal-title" tabindex="-1">กระทงบนสายน้ำ</h1>
+      <p>คำอธิษฐานที่ลอยไปกับพี่ยูทั่วประเทศไทย — แสดงเฉพาะชื่อเล่นของผู้ที่เลือกเผยแพร่</p>
+      <p class="gal-stat" id="gal-stat"></p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="gal-tools">
+      <label class="sr-only" for="gal-q">ค้นหาคำอธิษฐานหรือชื่อเล่น</label>
+      <input id="gal-q" type="search" placeholder="ค้นหาชื่อเล่น คำอธิษฐาน หรือสถานที่">
+      <label class="sr-only" for="gal-prov">จังหวัด</label>
+      <select id="gal-prov"><option value="">ทุกจังหวัด</option></select>
+      <button class="btn btn-soft" type="button" id="gal-refresh">รีเฟรช</button>
+    </div>
+    <div class="gal-grid" id="gal-grid" aria-live="polite"></div>
+    <div class="gal-state" id="gal-state"></div>
+    <div class="center"><button class="btn btn-ghost" type="button" id="gal-more" hidden>ดูเพิ่มเติม</button></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <img src="assets/we-logo.webp" alt="WE" width="28" height="28">
+  <p>ลอยกระทงออนไลน์กับพี่ยู เดอะเบรน · สืบสานประเพณีโดยไม่สร้างขยะลงแหล่งน้ำ</p>
+  <p class="mode" id="mode-badge"></p>
+</footer>
+
+<dialog class="dlg" id="dlg">
+  <form method="dialog" class="dlg-inner">
+    <button class="dlg-x" value="close" aria-label="ปิด">×</button>
+    <div id="dlg-body"></div>
+  </form>
+</dialog>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

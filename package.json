@@ -1,0 +1,10 @@
+{
+  "name": "digital-loy-krathong",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ลอยกระทงออนไลน์ — static web app (no dependencies)",
+  "scripts": {
+    "config": "node scripts/build-config.mjs",
+    "dev": "node scripts/build-config.mjs && npx --yes serve -l 3000 ."
+  }
+}
